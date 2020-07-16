@@ -1,7 +1,52 @@
-from translate import Translator
+#from translate import Translator
 
-translator = Translator(from_lang='Hindi',to_lang='English')
-# trans = translator.translate('My name is Prabal Gupta')
-trans = translator.translate('मेरा नाम प्रबल गुप्ता है')
-print(trans)
+# translator = Translator(from_lang='Hindi',to_lang='English')
+# # trans = translator.translate('My name is Prabal Gupta')
+# trans = translator.translate('मेरा नाम प्रबल गुप्ता है')
+# print(trans)
 
+
+# from tkinter import *
+# from translate import Translator
+
+# def trans():
+#     translator = Translator(from_lang=lan1.get(),to_lang=lan2.get())
+#     trans = translator.translate(var.get())
+#     var1.set(trans)
+
+root = Tk()
+root.title('Translator')
+# root.configure(background='bisque')
+root.geometry('400x400')
+frm = Frame(root, bg='bisque')
+frm.columnconfigure(0, weight=1)
+frm.rowconfigure(0, weight=1)
+frm.grid(sticky=(N,W,E,S))
+frm.pack(padx='10',pady='10')
+
+lan1= StringVar(root)
+lan2 = StringVar(root)
+
+choices = {'English', 'Hindi', 'Spanish', 'German'}
+lan1.set('English')
+lan2.set('Hindi')
+
+lan1menu = OptionMenu(frm, lan1, *choices)
+Label(frm,text='Language').grid(row=0,column=1)
+lan1menu.grid(row=1,column=1, padx='10', pady='10')
+
+lan2menu = OptionMenu(frm, lan2, *choices)
+Label(frm,text='Language').grid(row=0,column=2, padx='10', pady='10')
+lan1menu.grid(row=1,column=2, padx='10', pady='10')
+
+Label(frm, text='Enter text').grid(row=2,column=0, padx='10', pady='10')
+var=StringVar()
+textBox = Entry(frm, textvariable=var).grid(row=2, column=1, padx='10', pady='10')
+
+Label(frm, text='Output..').grid(row=2,column=2, padx='10', pady='10')
+var1=StringVar()
+textBox = Entry(frm, textvariable=var1).grid(row=2, column=3, padx='10', pady='10')
+
+button = Button(frm, text='Translate', command=trans).grid(row=3,column=1,columnspan=3)
+
+root.mainloop()
