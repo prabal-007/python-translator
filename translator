@@ -1,0 +1,7 @@
+from translate import Translator
+
+translator = Translator(from_lang='Hindi',to_lang='English')
+# trans = translator.translate('My name is Prabal Gupta')
+trans = translator.translate('मेरा नाम प्रबल गुप्ता है')
+print(trans)
+
