@@ -4,6 +4,7 @@ from langdetect import detect
 
 def trans():
     to_box.delete('1.0',END)
+    to_box.update()
     ori = detect(from_box.get('1.0','end'))
     if lang1.get() == 'Auto-detect':
         translator = Translator(from_lang= ori , to_lang= lang2.get())
@@ -19,7 +20,7 @@ root= Tk()
 root.title('Translator')
 root.geometry('800x500')
 root.config(bg='bisque')
-Label(text='Translator',font='arial 20',padx='5',pady='5').pack(pady=5)
+Label(text='Language Translator',font='arial 20',padx='5',pady='5').pack(pady=5)
 
 languages= {'English','Hindi','Spanish','French','Turkish','German','Swedish','Auto-detect'}
 lang1 = StringVar()
