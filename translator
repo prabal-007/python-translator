@@ -1,9 +1,11 @@
 from tkinter import *
 from translate import Translator
+from langdetect import detect
 
 def trans():
     to_box.delete('1.0',END)
-    translator = Translator(from_lang= lang1.get() , to_lang= lang2.get())
+    ori = detect(from_box.get('1.0','end'))
+    translator = Translator(from_lang= ori , to_lang= lang2.get())
     result = from_box.get('1.0','end')
     trans = translator.translate(result)
     to_box.configure(state=NORMAL)
@@ -17,9 +19,9 @@ root.geometry('500x340')
 root.config(bg='bisque')
 Label(text='Translator',font='arial 20',padx='5',pady='5').pack(pady=5)
 
-languages= {'English','Hindi','Spanish','French','Turkey','Sanskrti','German'}
+languages= {'English','Hindi','Spanish','French','Turkey','Sanskrti','German','Auto-detect'}
 lang1 = StringVar()
-lang1.set('English')
+lang1.set('Auto-detect')
 lang2 = StringVar()
 lang2.set('Hindi')
 
