@@ -3,6 +3,7 @@ from translate import Translator
 from langdetect import detect
 
 def trans():
+    to_box.configure(state=NORMAL)
     to_box.delete('1.0',END)
     to_box.update()
     ori = detect(from_box.get('1.0','end'))
