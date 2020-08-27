@@ -13,7 +13,6 @@ def trans():
         translator = Translator(from_lang= lang1.get(), to_lang= lang2.get())
     result = from_box.get('1.0','end')
     trans = translator.translate(result)
-    to_box.configure(state=NORMAL)
     to_box.insert(END,f'{trans}\n')
     to_box.configure(state=DISABLED)
 
@@ -21,7 +20,7 @@ root= Tk()
 root.title('Translator')
 root.geometry('800x500')
 root.config(bg='bisque')
-Label(text='Language Translator',font='arial 20',padx='5',pady='5').pack(pady=5)
+Label(text='Language Translator',font='arial 20 bold',padx='5',pady='5').pack(pady=5)
 
 languages= {'English','Hindi','Spanish','French','Turkish','German','Swedish','Auto-detect'}
 lang1 = StringVar()
